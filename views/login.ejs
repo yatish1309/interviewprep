@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> SIGN UP/LOGIN PAGE</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<link rel="stylesheet" href="level.css"> 
+ 
+</head>
+<body>
+  <div class="main">
+  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="home-tab" data-bs-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Singup</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="profile-tab" data-bs-toggle="tab" role="tab" aria-controls="profile" aria-selected="false">Login</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <form action="/signup" method="POST">
+        <label for="email">Email ID:</label>
+        <input id="email" type="email"name="email" placeholder="Enter your  email id" required><br>
+        <div class="email err sign"><p><%= email %></p></div>
+        <label for="Uname">User name:</label>
+        <input id="Uname" type="text" name="username"placeholder="Enter your Username" required><br>
+        <div class="username err sign"><p><%= username %></p></div>
+        <label for="pass">Password:</label>
+        <input id="pass" type="password" name="password" required><br>
+        <div class="pass err sign"><p><%= password %></p></div>
+        <input class="btn btn-primary" type="submit" value="Create an account">
+      </form>
+    </div>
+    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+     <form action="/login" method="POST">
+      <label for="Uname">User name:</label>
+      <input id="Uname" type="text" name="username"placeholder="Enter your Username" required><br>
+      <div class="username err login"><p><%= username %></p></div>
+      <label for="pass">Password:</label>
+      <input id="pass" type="password" name="password" required><br>
+      <div class="pass err login"><p><%= password %></p></div>
+      <input class="btn btn-success" type="submit"  value="Log in">
+     </form>
+    </div>
+  </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+  <script src="login.js" >
+
+  </script>
+  <script>
+    var b = document.querySelectorAll('.btn.btn-success');
+    var es = document.querySelector('.email.err.sign');
+    var us = document.querySelector('.username.err.sign');
+    var ps = document.querySelector('.pass.err.sign');
+    var ul = document.querySelector('.username.err.login');
+    var pl = document.querySelector('.pass.err.login');
+    b[0].addEventListener('click',(e)=>{
+      ul.textContent = "";
+      pl.textContent = "";
+    });
+    b[1].addEventListener('click',(e)=>{
+      es.textContent = "";
+      us.textContent = "";
+      ps.textContent = "";
+    });
+
+  </script>
+  
+</body>
+
+</html>

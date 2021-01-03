@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>questions</title>
+  </head>
+  <body>
+    <p>welcome</p>
+    <% if (questions.length > 0) { %>
+      <h1><%= name %></h1>
+      <% questions.forEach(question => { %>
+        <a class="single" href="<%= question.link %> ">
+          <h3 class="title"><%= question.name %></h3>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no topics to display...</p>
+    <% } %>
+  </body>
+</html>

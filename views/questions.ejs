@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>questions</title>
+  </head>
+  <body>
+    <p>welcome</p>
+    <% if (result.length > 0) { %>
+      <% result.forEach((topic) => { %>
+        <a class="single" href="/questions/<%= topic.section %>">
+          <h3 class="title"><%= topic.section %></h3>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>There are no topics to display...</p>
+    <% } %>
+  </body>
+</html>

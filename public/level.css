@@ -1,0 +1,34 @@
+.main{
+  margin-top: 100px;
+  box-sizing: border-box;
+  text-align: -moz-center;
+}
+
+button .login{
+  display:inline;
+}
+label{
+  color:black;
+  width:170px;
+  text-align: right;
+  padding: 0px;
+}
+input{
+  margin-bottom:10px;
+}
+form{
+  width:500px;
+  height: 300px;
+  text-align: center;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  border-bottom:1px solid #dee2e6;
+  box-sizing: border-box;
+  padding-top: 30px;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+ul{
+  width:500px;
+}
