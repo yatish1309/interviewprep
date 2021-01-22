@@ -2,18 +2,80 @@
 <html>
   <head>
     <title>questions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/topic.css">
   </head>
-  <body>
-    <p>welcome</p>
+  <body style="background-color: whitesmoke;">
+    <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Question</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/questions/<%= name %>" method="POST">
+              <div class="form-group">
+                <label for="name">Question Name:</label>
+                <input type="email" class="form-control" id="name" name="name">
+              </div>
+              <div class="form-group">
+                <label for="link">Question Link:</label>
+                <input type="url" class="form-control" id="link" name="link" placeholder="enter the question link">
+              </div>
+              <button type="submit" class="btn btn-success">Add</button>
+            </form> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="total">
+      <li>INTERVIEW</li>
+      <div class="log">
+        <% if(user) { %>
+          <li>welcome <%= user.username %></li>
+          <li><a href="/logout">logout</a></li>
+          <% if(admin) {%>
+            <li><a href="/admin">admin panel</a></li>
+          <%}%>
+        <% } else { %>
+            <li><a href="/login">login</a></li>
+            <li><a href="/signup">signup</a></li>
+         <%}%>
+      </div>
+    </ul>
+    <div class="head" style="text-align: center;">
+      <h2><%= name %></h2>
+    </div>
+    <div class="d-flex flex-wrap justify-content-between flex-row" style="padding-top: 50px;
+    padding-left: 70px;padding-right: 80px;">
     <% if (questions.length > 0) { %>
-      <h1><%= name %></h1>
       <% questions.forEach(question => { %>
-        <a class="single" href="<%= question.link %> ">
-          <h3 class="title"><%= question.name %></h3>
-        </a>
+        <% if(question.approved){%>
+          <div class="topic" style="border: 5px solid white;box-shadow:5px 5px 4px 5px #888888;background: white;width: 400px;height: 200px;">
+          <a class="single" href="<%= question.link %> " style="margin-top: 70px;display: block;">
+            <div class="topic-title" style="font-size: 25px;"><%= question.name %></div>
+          </a>
+          </div>
+        <%}%>
       <% }) %>
     <% } else { %>
       <p>There are no topics to display...</p>
     <% } %>
+    </div>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" style="margin-top: 50px;float: right;margin-right: 16px;">
+  Add Question
+</button>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   </body>
 </html>
