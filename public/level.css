@@ -14,7 +14,7 @@ button .login{
   display:inline;
 }
 label{
-  color:black;
+  color:rgb(255, 51, 0);
   width:170px;
   text-align: right;
   padding: 0px;
@@ -37,4 +37,16 @@ form{
 }
 ul{
   width:500px;
+}
+a.nav-link{
+  cursor: pointer;
+}
+#email{
+  margin-top: 10px;
+}
+#Uname{
+  margin-top: 10px;
+}
+#pass{
+  margin-top: 10px;
 }
